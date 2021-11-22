@@ -1,63 +1,49 @@
-# Contributing to v3.ocaml.org
+# How to contribute
+
+Welcome to v3.ocaml.org's contributing guide.
+
+Ocaml's a community-driven project and your help to v3.ocaml.org is extremely welcome.
 
 ## Code of Conduct
 
-Coming soon...
+## How to get started
 
-## Ways to get involved
+We are particularly motivated to support new contributors. Here are a few ways to get started. You could contribute to a bunch of issues suggested below:
 
-- fix or suggest content - start by filing an issue in `ocaml/ood` repository
-- implement pages - search through existing issues to find out what pages are planned for upcoming implementation
-- contribute to site build process - search through existing issues or file an issue suggesting improvements
 
-## Content workflow
+- **Good First Issues** 
+You can look at the good first issues in four repositories:
+    - [ocaml/ood](https://github.com/ocaml/ood/labels/good%20first%20issue). 
+    - [ocaml/v3.ocaml.org](https://github.com/ocaml/v3.ocaml.org/labels/good%20first%20issue).
+    - [ocaml-docs-ci](https://github.com/ocurrent/ocaml-docs-ci/labels/good%20first%20issue).
+    - [ocaml/v3.ocaml.org-server](https://github.com/ocaml/v3.ocaml.org-server/labels/good%20first%20issue).
 
-See `ocaml/ood` README.
+- **Fix or suggest content to ocaml/ood**
+ Add some scrapped blog posts. You can help with importing the blog posts from [here.](https://github.com/ocaml/platform-blog.)
+- **Implement pages**
+ You can search through existing issues [over here](https://github.com/ocaml/v3.ocaml.org/projects/11) to find out what pages are planned for upcoming implementation.
+- **File an issue**
+ File an issue suggesting improvements [over here.](https://github.com/ocaml/v3.ocaml.org/issues/new)
 
-### Design and Information Architecture
 
-[Sitemap and information architecture on flowmap](https://app.flowmapp.com/share/6e5eeb4573f9e110ac779691fee85422/sitemap/)
+**Note: If you get stuck, chat with us on [Discord.](https://discord.com/channels/436568060288172042/585511202759770135)**
 
-Design - Uses Figma, currently managed by designer. Discussion of both design and content is managed with Figma commenting system.
+> 
 
-## Implementation Issue workflow
+## Reporting bugs
 
-### Contributor
+We use GitHub issues to track all bugs and feature requests; feel free to open an issue over [here](https://github.com/ocaml/v3.ocaml.org/issues/new) if you have found a bug or wish to see a feature implemented.
 
-Feel free to use any approach that you prefer. The dev team
-suggests the following:
-
-- If you are unsure if your change will be accepted or if want to discuss the
-  approach before diving in, please create an issue and pose questions.
-- Create a draft pull request with a small initial commit. One way to do this quickly is the following:
-  - Click the "branch" drop down menu and type the name of your new branch, using the convention INITIALS/TOPIC, such as "kw1/update-homepage", and click "Create branch: ..."
-  - In order to be able to create a pull request, make a small commit:
-    - Traverse to a source file of interest
-    - Click the "pencil" edit icon in the top right, which puts the file in edit mode
-    - Make a small change in the edit window
-    - Select "Commit directly ..." and click "Commit changes"
-  - Create a pull request
-  - Change the action to "Create draft pull request" and press the button
-- Clone the repo locally (or continue editing directly in github if the change is small). Checkout
-  out the branch that you created.
-- Continue developing, feel free to ask questions in
-  the PR, if you run into obstacles or uncertainty as you make changes
-- Review your implementation according to the checks noted in the PR template
-- Once you feel your branch is ready, change the PR status to "ready to review"
-
-### Reviewer
-
-- Consult the tasks noted in the PR template
-- When merging, consider cleaning up the commit body
-- Close any issues that were addressed by this PR
 
 ## Setup and Development
 
 ### Prerequisities
 
-The site build process assume you have `npx` available. Run `npx --version` to test your installation. If you don't have `npx`, you will need to install `node`, the package that `npx` is part of. Currently we require node LTS Version 14.x. Please consult the [Node.js website](https://nodejs.org) for instructions on installing it.
+The site-building process assumes that you have `npx` available. Run `npx --version` to test your installation. If you don’t have `npx`, you will need to install node, the package that npx is part of. Currently, we require node LTS Version 14.x. Please consult the Node.js website for instructions on installing it.
 
-Our recommendation is to use a node version manager such as [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm). Thus, install one of these tools instead. Then you can run the following in the root of the repo:
+Our recommendation is to use a node version manager, such as [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm). Therefore, please install one of these tools instead. 
+
+If you do have `npx` [fork and clone the repository](https://github.com/ocaml/v3.ocaml.org) and run the following command in the root directory of the repo:
 
 ```bash
 echo 14 > .nvmrc
@@ -98,28 +84,51 @@ make watch
 
 Go to `http://localhost:3000`
 
-## Tips
 
-### Do not use nextjs server side features, such as getServerSideProps
 
-In order to ensure that this site remains a static site, do not make use of nextjs's
-`getServerSideProps` functionality. More [functionality to avoid is enumerated in the nextjs docs](https://nextjs.org/docs/advanced-features/static-html-export#caveats).
-
-## Useful commands
-
-Build CSS separately via `npx postcss` (useful for debugging)
+**Note :** 
+- Ensure that the site remains static. Have a look at the nextjs's functionalities to be avoided overe [here.](https://nextjs.org/docs/advanced-features/static-html-export#caveats)
+- Build CSS separately via `npx postcss` . This is useful for debugging.
 
 ```
 npx postcss@8.3.1 styles/main.css -o /tmp/test.css
 ```
 
-## Test production setup
+### Test production setup
 
 ```
 make build && make serve
 ```
 
+## Git and GitHub workflow
+
+The preferred workflow for contributing to a repository is to fork the main repository on GitHub, clone, and develop on a new branch.
+
+If you aren't familiar with how to work with Github or would like to learn it, here is [a great tutorial](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github).
+
+Feel free to use any approach while creating a pull request. Here are a few suggestions from the dev team:
+
+- If you are not sure whether your changes will be accepted or want to discuss the method before delving into it, please create an issue and ask it.
+- Clone the repo locally (or continue editing directly in github if the change is small). Checkout
+  out the branch that you created.
+- Create a draft pull request with a small initial commit. Here's how you can [create a draft pull request.](https://github.blog/2019-02-14-introducing-draft-pull-requests/)
+- Continue developing, feel free to ask questions in the PR, if you run into obstacles or uncertainty as you make changes
+- Review your implementation according to the checks noted in the PR template
+- Once you feel your branch is ready, change the PR status to "ready to review"
+- Consult the tasks noted in the PR template
+- When merging, consider cleaning up the commit body
+- Close any issues that were addressed by this PR.
+
+
+## Design and Information Architecture
+
+The Design uses Figma and is currently managed by designer. Discussion of both design and content is managed with Figma commenting system.
+
+You can have a look at the sitemap and information architecture on flowmap over [here.](https://app.flowmapp.com/share/6e5eeb4573f9e110ac779691fee85422/sitemap/)
+
 ## Architecture
+## Coding style
 
-...
 
+## Acknowledging contributions
+We follow the [all-contributors](https://allcontributors.org/) specification and recognize various types of contributions. Take a look at our past and current contributors!
